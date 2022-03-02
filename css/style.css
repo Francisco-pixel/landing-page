@@ -256,10 +256,13 @@ body{
     }
 }
 
+.thumb__box-img
+{
+    z-index:1;
+}
 .thumb__box-img:hover
 {
     cursor:pointer;
-    z-index:1;
     animation:img 1s alternate infinite;
 }
 @keyframes img{
