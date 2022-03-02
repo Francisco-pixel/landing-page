@@ -54,4 +54,3 @@ d.addEventListener("click",e=>{
         d.querySelector(".info__img-main").src=img;
     }
 })
-c.log(d)
