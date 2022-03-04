@@ -16,17 +16,18 @@ btnUpStyle({
     "bg":"#ffb311",
     "wh":"50px"
 })
-let menu=["nosotros","contacto"],
+let menu=["inicio","contacto"],
+id=["#","#contacto"],
 thumbImg=[
     {"clase":"flex--align-center span-2","img":"./img/img0.png","bg":"#c6b85d"},
     {"clase":"flex--align-center span-2","img":"./img/img1.png","bg":"#946c64"},
     {"clase":"flex--align-center span-2 thumb--span-2","img":"./img/img2.png","bg":"#dd566b"}
 ];
 /* Menú */
-menu.forEach(item=>{
+menu.forEach((item,i)=>{
     d.querySelector(".header__ul").innerHTML+=`
     <li class="header__li">
-        <a href="#" class="header__li-a">${item}</a>
+        <a href="${id[i]}" class="header__li-a">${item}</a>
     </li>
     `;
 })
@@ -52,5 +53,8 @@ d.addEventListener("click",e=>{
         d.querySelector(".circle").style.background=bg;
         d.querySelector(".circle2").style.background=bg;
         d.querySelector(".info__img-main").src=img;
+    }
+    if(e.target.matches(".enviar")){
+        e.preventDefault();
     }
 })
