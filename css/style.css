@@ -240,7 +240,8 @@ body{
     border-radius:50%;
     opacity:0.5;
 }
-.thumb__shadow:hover:before
+.thumb__shadow:hover:before,
+.thumb__shadow.saltar::before
 {
     animation:shadow 1s alternate infinite;
 }
@@ -310,7 +311,8 @@ body{
 {
     z-index:1;
 }
-.thumb__box-img:hover
+.thumb__box-img:hover,
+.thumb__box-img.saltar
 {
     cursor:pointer;
     animation:img 1s alternate infinite;

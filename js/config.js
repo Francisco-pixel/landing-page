@@ -42,7 +42,8 @@ thumbImg.forEach(item=>{
     </div>
     `;
 })
-
+d.querySelector(".thumb__box-img").classList.add("saltar")
+d.querySelector(".thumb__shadow").classList.add("saltar")
 d.addEventListener("click",e=>{
     if(e.target.matches(".header__btn")){
         e.target.classList.toggle("activo");
@@ -50,6 +51,10 @@ d.addEventListener("click",e=>{
     }
     if(e.target.matches(".thumb__box-img")){
         let {bg,img}=e.target.dataset;
+        d.querySelector(".thumb__box-img.saltar").classList.remove("saltar");
+        d.querySelector(".thumb__shadow.saltar").classList.remove("saltar")
+        e.target.parentElement.classList.add("saltar")
+        e.target.classList.add("saltar");
         d.querySelector(".circle").style.background=bg;
         d.querySelector(".circle2").style.background=bg;
         d.querySelector(".info__img-main").src=img;
