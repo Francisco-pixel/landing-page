@@ -1,4 +1,4 @@
-import { c, d } from "https://francisco-pixel.github.io/modulos/js/data.js";
+//import { c, d } from "https://francisco-pixel.github.io/modulos/js/data.js";
 import { conexionInternet } from "https://francisco-pixel.github.io/modulos/js/conexionInternet.js";
 import { tiempo } from "https://francisco-pixel.github.io/modulos/js/fecha.js";
 import { crearNodo } from "https://francisco-pixel.github.io/modulos/js/crearNodo.js";
@@ -16,6 +16,8 @@ btnUpStyle({
     "bg":"#ffb311",
     "wh":"50px"
 })
+let d=document,
+$=a=>d.querySelector(a);
 let menu=["inicio","contacto"],
 id=["#","#contacto"],
 thumbImg=[
@@ -25,7 +27,7 @@ thumbImg=[
 ];
 /* Menú */
 menu.forEach((item,i)=>{
-    d.querySelector(".header__ul").innerHTML+=`
+    $(".header__ul").innerHTML+=`
     <li class="header__li">
         <a href="${id[i]}" class="header__li-a">${item}</a>
     </li>
@@ -34,7 +36,7 @@ menu.forEach((item,i)=>{
 /* Thumb img */
 thumbImg.forEach(item=>{
     let {clase,img,bg}=item;
-    d.querySelector(".thumb").innerHTML+=`
+    $(".thumb").innerHTML+=`
     <div class="thumb__box ${clase}">
         <div class="thumb__shadow">
             <img src="${img}" alt="Imagen Thumb" class="thumb__box-img" data-bg="${bg}" data-img="${img}">
@@ -42,24 +44,27 @@ thumbImg.forEach(item=>{
     </div>
     `;
 })
-d.querySelector(".thumb__box-img").classList.add("saltar")
-d.querySelector(".thumb__shadow").classList.add("saltar")
+$(".thumb__box-img").classList.add("saltar")
+$(".thumb__shadow").classList.add("saltar")
 d.addEventListener("click",e=>{
     if(e.target.matches(".header__btn")){
         e.target.classList.toggle("activo");
-        d.querySelector(".header__ul").classList.toggle("mostrar_menu");
+        $(".header__ul").classList.toggle("mostrar_menu");
     }
     if(e.target.matches(".thumb__box-img")){
         let {bg,img}=e.target.dataset;
-        d.querySelector(".thumb__box-img.saltar").classList.remove("saltar");
-        d.querySelector(".thumb__shadow.saltar").classList.remove("saltar")
+        $(".thumb__box-img.saltar").classList.remove("saltar");
+        $(".thumb__shadow.saltar").classList.remove("saltar")
         e.target.parentElement.classList.add("saltar")
         e.target.classList.add("saltar");
-        d.querySelector(".circle").style.background=bg;
-        d.querySelector(".circle2").style.background=bg;
-        d.querySelector(".info__img-main").src=img;
+        $(".circle").style.background=bg;
+        $(".circle2").style.background=bg;
+        $(".info__img-main").src=img;
     }
     if(e.target.matches(".enviar")){
         e.preventDefault();
     }
 })
+setInterval(() => {
+    $('#year').innerText=new Date().getFullYear();
+}, 1000);
